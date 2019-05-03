@@ -1,0 +1,90 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    kapt {
+        correctErrorTypes true
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // android support libs
+    implementation presentationDependencies.material
+    implementation presentationDependencies.supportv4
+    implementation presentationDependencies.appCompat
+    implementation presentationDependencies.recyclerview
+    implementation presentationDependencies.cardview
+    implementation presentationDependencies.annotation
+
+    // network
+    implementation presentationDependencies.retrofit
+    implementation presentationDependencies.retrofitGsonConverter
+    implementation presentationDependencies.retrofitRxJava2Adapter
+    implementation presentationDependencies.okhttpLogging
+    // parser
+    implementation presentationDependencies.gson
+
+    // dependency injection
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.daggerAndroid
+    implementation presentationDependencies.daggerAndroidSupport
+    kapt presentationDependencies.daggerAndroidProcessor
+    kapt presentationDependencies.daggerCompiler
+
+    // reactive
+    implementation presentationDependencies.rxJava
+    implementation presentationDependencies.rxAndroid
+    implementation presentationDependencies.reactiveStreams
+
+    implementation presentationDependencies.supportDesign
+    implementation presentationDependencies.constraintLayout
+
+    implementation presentationDependencies.kotlin
+
+    implementation presentationDependencies.lifecycleExtensions
+    implementation presentationDependencies.liveData
+    implementation presentationDependencies.viewmodel
+    implementation presentationDependencies.lifecycleExtensions
+
+    // test
+    testImplementation presentationTestDependencies.junit
+    androidTestImplementation presentationTestDependencies.testRunner
+    androidTestImplementation presentationTestDependencies.testRules
+    androidTestImplementation presentationTestDependencies.espressoCore
+    androidTestImplementation presentationTestDependencies.espressoContrib
+    implementation presentationTestDependencies.espressoIdlingResource
+    androidTestImplementation presentationTestDependencies.supportAnnotations
+    testImplementation presentationTestDependencies.robolectric
+    testImplementation presentationTestDependencies.mockitoCore
+    testAnnotationProcessor presentationTestDependencies.daggerCompiler
+    androidTestAnnotationProcessor presentationTestDependencies.daggerCompiler
+    testImplementation presentationTestDependencies.mockitoKotlin
+    testImplementation presentationTestDependencies.powermockModuleJunit4
+    testImplementation presentationTestDependencies.powermockApiMockito
+}

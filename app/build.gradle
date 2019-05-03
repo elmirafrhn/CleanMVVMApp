@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.farahani.elmira.cleanapp"
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':presentation')
+    implementation project(':domain')
+    implementation project(':data')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation dataDependencies.rxJava
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.daggerAndroid
+    implementation presentationDependencies.daggerAndroidSupport
+    kapt presentationDependencies.daggerCompiler
+    kapt presentationDependencies.daggerAndroidProcessor
+    implementation presentationDependencies.kotlin
+    implementation dataDependencies.room
+    kapt dataDependencies.roomCompiler
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.retrofitRxjavaAdapter
+    implementation dataDependencies.retrofitConverterGson
+
+}
+repositories {
+    mavenCentral()
+}
