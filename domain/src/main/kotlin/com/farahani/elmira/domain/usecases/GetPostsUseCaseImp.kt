@@ -7,7 +7,7 @@ import io.reactivex.Completable
 class GetPostsUseCaseImp(
     private val transformer: Transformer,
     private val postsRepository: PostsRepository
-) :
-    BaseUseCase {
-    override fun execute(): Completable = postsRepository.getPosts().compose(transformer)
+) : GetPostsUseCase {
+    override fun execute(): Completable =
+        postsRepository.getPosts().compose(transformer)
 }

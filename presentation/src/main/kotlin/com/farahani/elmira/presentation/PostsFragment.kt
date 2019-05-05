@@ -1,12 +1,13 @@
 package com.farahani.elmira.presentation
 
-import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import dagger.android.support.AndroidSupportInjection
+import com.farahani.elmira.domain.entities.Post
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -19,11 +20,19 @@ class PostsFragment : DaggerFragment() {
         ViewModelProviders.of(this, viewModelFactory).get(PostsViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_main, container,false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceStat: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_main, container, false)
 
-        viewModel.getPosts()
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.posts.observe(this, Observer<MutableList<Post>> {
+            it.forEach { item ->
+                Log.d("getPostsUseCaseImp", item.title)
+            }
+        })
     }
 
     companion object {

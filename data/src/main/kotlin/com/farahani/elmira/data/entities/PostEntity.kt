@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "posts")
 data class PostEntity(
     @PrimaryKey
-    val userId: Int,
     val id: Int,
+    val userId: Int,
     val title: String,
     val body: String
 )

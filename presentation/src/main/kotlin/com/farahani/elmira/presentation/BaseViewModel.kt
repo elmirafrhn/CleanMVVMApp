@@ -9,6 +9,10 @@ open class BaseViewModel : ViewModel() {
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
     private val adapter:ListAdapter? =null
 
+    protected fun Disposable.track() {
+        compositeDisposable.add(this)
+    }
+
     protected fun addDisposable(disposable: Disposable) {
         compositeDisposable.add(disposable)
     }

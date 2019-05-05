@@ -45,6 +45,9 @@ dependencies {
     implementation dataDependencies.retrofit
     implementation dataDependencies.retrofitRxjavaAdapter
     implementation dataDependencies.retrofitConverterGson
+    implementation appDependencies.loggingInterceptor
+
+    debugImplementation appDependencies.amitshekhar
 
 }
 repositories {

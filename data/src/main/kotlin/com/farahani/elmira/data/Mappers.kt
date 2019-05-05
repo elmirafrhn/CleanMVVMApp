@@ -17,3 +17,10 @@ fun PostDto.map() = PostEntity(
     title = title,
     body = body
 )
+
+fun Post.map() = PostEntity(
+    userId = userId,
+    id = id,
+    title = title,
+    body = body
+)

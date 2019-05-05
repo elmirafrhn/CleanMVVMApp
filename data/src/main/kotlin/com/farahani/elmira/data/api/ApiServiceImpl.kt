@@ -1,13 +1,13 @@
 package com.farahani.elmira.data.api
 
 import com.farahani.elmira.data.dto.PostDto
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import retrofit2.Retrofit
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class ApiServiceImpl @Inject constructor(private val retrofit: Retrofit) : ApiService {
+@Singleton
+class ApiServiceImpl @Inject constructor(retrofit: Retrofit) : ApiService {
     private val retrofitCreated = retrofit.create(ApiService::class.java)
-    override fun getPosts(): Observable<List<PostDto>> = retrofitCreated.getPosts()
-
-
+    override fun getPosts(): Flowable<MutableList<PostDto>> = retrofitCreated.getPosts()
 }

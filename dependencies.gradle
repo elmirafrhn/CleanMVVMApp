@@ -48,6 +48,9 @@ ext {
     robolectricVersion = '3.0'
     chuckVersion = '1.1.0'
 
+    amitshekharVersion = '1.0.5'
+    loggingInterceptorVersion = '3.9.1'
+
     archComponentsVersion = '1.1.1'//'2.1.0-alpha02'
 
     domainDependencies = [
@@ -102,6 +105,11 @@ ext {
             liveData              : "android.arch.lifecycle:livedata:$archComponentsVersion",
             viewmodel             : "android.arch.lifecycle:viewmodel:$archComponentsVersion",
             lifecycleExtensions   : "android.arch.lifecycle:extensions:$archComponentsVersion",
+    ]
+
+    appDependencies = [
+            amitshekhar       : "com.amitshekhar.android:debug-db:${amitshekharVersion}",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorVersion}"
     ]
 
     unitTestDependencies = [

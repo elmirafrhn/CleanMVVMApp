@@ -7,6 +7,8 @@ import com.farahani.elmira.data.api.ApiService
 import com.farahani.elmira.data.datasources.posts.PostsDataSource
 import com.farahani.elmira.data.datasources.posts.PostsDataSourceImpl
 import com.farahani.elmira.data.entities.PostsDao
+import com.farahani.elmira.data.repositories.PostsRepositoryImpl
+import com.farahani.elmira.domain.interfaces.PostsRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -18,8 +20,12 @@ class DbModule {
     fun providePostsDao(db: Database) = db.postsDao()
 
     @Provides
-    fun PostsDataSource(apiService: ApiService, postsDao: PostsDao): PostsDataSource =
+    fun providePostsDataSource(apiService: ApiService, postsDao: PostsDao): PostsDataSource =
         PostsDataSourceImpl(apiService, postsDao)
+
+    @Provides
+    fun providePostsRepository(postsDataSource: PostsDataSource): PostsRepository =
+        PostsRepositoryImpl(postsDataSource)
 
     @Provides
     @Singleton
