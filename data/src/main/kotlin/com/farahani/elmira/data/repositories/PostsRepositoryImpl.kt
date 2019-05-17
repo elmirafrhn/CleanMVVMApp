@@ -8,7 +8,13 @@ import io.reactivex.Completable
 import io.reactivex.Flowable
 import javax.inject.Inject
 
-class PostsRepositoryImpl @Inject constructor(private val postsDataSource: PostsDataSource) : PostsRepository {
+class PostsRepositoryImpl @Inject constructor(
+    private val postsDataSource: PostsDataSource
+) : PostsRepository {
+
+    override fun getPostDetails(id: Int): Flowable<Post> =
+        postsDataSource.getPostDetails(id).map { it.map() }
+
     override fun getPostsF(): Flowable<MutableList<Post>> {
         return postsDataSource.getPostsF().map {
             it.map { item ->
@@ -17,7 +23,5 @@ class PostsRepositoryImpl @Inject constructor(private val postsDataSource: Posts
         }
     }
 
-    override fun getPosts(): Completable {
-        return postsDataSource.getPosts()
-    }
+    override fun loadMorePosts(): Completable = postsDataSource.loadMorePosts()
 }

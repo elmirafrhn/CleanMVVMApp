@@ -71,6 +71,7 @@ dependencies {
     implementation presentationDependencies.liveData
     implementation presentationDependencies.viewmodel
     implementation presentationDependencies.lifecycleExtensions
+    implementation presentationDependencies.paging
 
     // test
     testImplementation presentationTestDependencies.junit

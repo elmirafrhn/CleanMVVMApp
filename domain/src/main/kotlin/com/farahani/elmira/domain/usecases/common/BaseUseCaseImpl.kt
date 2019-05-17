@@ -1,9 +1,10 @@
-package com.farahani.elmira.domain.usecases
+package com.farahani.elmira.domain.usecases.common
 
 import com.farahani.elmira.domain.Transformer
-import io.reactivex.Observable
+import com.farahani.elmira.domain.usecases.common.BaseUseCase
 
-abstract class BaseUseCaseImpl<T>(private val transformer: Transformer) : BaseUseCase {
+abstract class BaseUseCaseImpl<T>(private val transformer: Transformer) :
+    BaseUseCase {
 
 //    abstract fun createObservable(): Observable<T>
 //

@@ -2,7 +2,7 @@ package com.farahani.elmira.cleanapp.di.modules
 
 import com.farahani.elmira.data.repositories.PostsRepositoryImpl
 import com.farahani.elmira.domain.interfaces.PostsRepository
-import com.farahani.elmira.domain.usecases.GetPostsUseCase
+import com.farahani.elmira.domain.usecases.GetPostDetailsUseCaseFlowable
 import com.farahani.elmira.domain.usecases.GetPostsUseCaseFlowable
 import com.farahani.elmira.domain.usecases.GetPostsUseCaseImp
 import com.farahani.elmira.presentation.transformer.TransformerFImpl
@@ -20,4 +20,8 @@ class UsecasesModule {
     @Provides
     fun provideGetPostsUseCaseFImpl(repository: PostsRepositoryImpl): GetPostsUseCaseFlowable =
         GetPostsUseCaseFlowable(repository, TransformerFImpl())
+
+    @Provides
+    fun provideGetPostDetailsUseCaseImpl(repository: PostsRepositoryImpl): GetPostDetailsUseCaseFlowable =
+        GetPostDetailsUseCaseFlowable(repository, TransformerFImpl())
 }

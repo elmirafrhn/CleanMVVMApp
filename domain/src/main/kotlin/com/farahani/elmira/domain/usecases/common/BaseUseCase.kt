@@ -1,4 +1,4 @@
-package com.farahani.elmira.domain.usecases
+package com.farahani.elmira.domain.usecases.common
 
 import io.reactivex.Completable
 

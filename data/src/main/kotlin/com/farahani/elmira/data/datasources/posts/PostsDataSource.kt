@@ -6,6 +6,7 @@ import io.reactivex.Flowable
 
 interface PostsDataSource {
 
-    fun getPosts():Completable
+    fun loadMorePosts(): Completable
     fun getPostsF(): Flowable<MutableList<PostEntity>>
+    fun getPostDetails(id: Int): Flowable<PostEntity>
 }

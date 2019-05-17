@@ -9,5 +9,5 @@ class GetPostsUseCaseImp(
     private val postsRepository: PostsRepository
 ) : GetPostsUseCase {
     override fun execute(): Completable =
-        postsRepository.getPosts().compose(transformer)
+        postsRepository.loadMorePosts().compose(transformer)
 }

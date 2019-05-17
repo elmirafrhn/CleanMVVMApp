@@ -14,4 +14,7 @@ interface PostsDao {
 
     @Query("Select * from posts")
     fun selectPosts(): Flowable<MutableList<PostEntity>>
+
+    @Query("Select * from posts where id=:id")
+    fun selectPostById(id: Int): Flowable<PostEntity>
 }

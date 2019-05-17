@@ -6,6 +6,7 @@ import io.reactivex.Flowable
 
 interface PostsRepository : BaseRepository {
 
-    fun getPosts(): Completable
+    fun loadMorePosts(): Completable
     fun getPostsF(): Flowable<MutableList<Post>>
+    fun getPostDetails(id: Int): Flowable<Post>
 }

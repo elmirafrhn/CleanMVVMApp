@@ -105,6 +105,7 @@ ext {
             liveData              : "android.arch.lifecycle:livedata:$archComponentsVersion",
             viewmodel             : "android.arch.lifecycle:viewmodel:$archComponentsVersion",
             lifecycleExtensions   : "android.arch.lifecycle:extensions:$archComponentsVersion",
+            paging                : "android.arch.paging:runtime:1.0.0"
     ]
 
     appDependencies = [

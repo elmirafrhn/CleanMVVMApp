@@ -9,5 +9,5 @@ import javax.inject.Singleton
 @Singleton
 class ApiServiceImpl @Inject constructor(retrofit: Retrofit) : ApiService {
     private val retrofitCreated = retrofit.create(ApiService::class.java)
-    override fun getPosts(): Flowable<MutableList<PostDto>> = retrofitCreated.getPosts()
+    override fun getPosts(page:Int,limit:Int): Flowable<MutableList<PostDto>> = retrofitCreated.getPosts(page,limit)
 }
