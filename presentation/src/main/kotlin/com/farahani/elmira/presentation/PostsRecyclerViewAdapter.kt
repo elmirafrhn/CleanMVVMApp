@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.farahani.elmira.presentation.models.PostModel
 import io.reactivex.subjects.PublishSubject
 
-class PostsRecyclerViewAdapter() : RecyclerView.Adapter<PostsRecyclerViewAdapter.PostViewHolder>() {
+class PostsRecyclerViewAdapter : RecyclerView.Adapter<PostsRecyclerViewAdapter.PostViewHolder>() {
 
     val listActionSubject = PublishSubject.create<PostsListAction>()
 
-    private val list = mutableListOf<PostModel>()
+    val items = mutableListOf<PostModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
 
@@ -22,24 +22,24 @@ class PostsRecyclerViewAdapter() : RecyclerView.Adapter<PostsRecyclerViewAdapter
         return PostViewHolder(view)
     }
 
-    override fun getItemCount(): Int = list.count()
+    override fun getItemCount(): Int = items.count()
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
 
-        holder.titleTextView.text = list[position].title
+        holder.titleTextView.text = items[position].title
 
         holder.titleTextView.setOnClickListener {
-            listActionSubject.onNext(PostsListAction.PostsListItemAction(list[position]))
+            listActionSubject.onNext(PostsListAction.PostsListItemAction(items[position]))
         }
 
-        if (position >= list.size - 1) {
+        if (position >= items.size - 1) {
             listActionSubject.onNext(PostsListAction.LoadMorePostsAction())
         }
     }
 
-    fun submitList(postList: MutableList<PostModel>) {
-        list.clear()
-        list.addAll(postList)
+    fun submitList(postList: List<PostModel>) {
+        items.clear()
+        items.addAll(postList)
     }
 
     class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {

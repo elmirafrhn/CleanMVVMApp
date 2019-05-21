@@ -22,6 +22,7 @@ class MainActivity : DaggerAppCompatActivity(), ItemClickLCallBack {
         FragmentManager.enableDebugLogging(true)
         supportFragmentManager.beginTransaction()
             .add(R.id.fragment_container, DetailsFragment.newInstance(postModel))
-            .addToBackStack("details_fragment").commit()
+            .addToBackStack("details_fragment")
+            .commit()
     }
 }

@@ -8,7 +8,7 @@ import io.reactivex.Completable
 import io.reactivex.Flowable
 import javax.inject.Inject
 
-class PostsRepositoryImpl @Inject constructor(
+class PostsRepository @Inject constructor(
     private val postsDataSource: PostsDataSource
 ) : PostsRepository {
 

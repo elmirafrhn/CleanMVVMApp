@@ -1,15 +1,16 @@
 package com.farahani.elmira.data.dto
 
-
 import com.google.gson.annotations.SerializedName
 
-class PostDto(
-    @SerializedName("userId")
-    val userId: Int,
+data class CommentDto(
+    @SerializedName("postId")
+    val postId: Int,
     @SerializedName("id")
     val id: Int,
-    @SerializedName("title")
-    val title: String,
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("email")
+    val email: String,
     @SerializedName("body")
     val body: String
 )

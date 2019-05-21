@@ -7,14 +7,11 @@ import androidx.room.Query
 import io.reactivex.Flowable
 
 @Dao
-interface PostsDao {
+interface CommentsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPosts(posts: List<PostEntity>)
+    fun insert(comments: List<CommentEntity>)
 
-    @Query("Select * from posts")
-    fun selectPosts(): Flowable<List<PostEntity>>
-
-    @Query("Select * from posts where id=:id")
-    fun selectPostById(id: Int): Flowable<PostEntity>
+    @Query("select * from comments where postId=:id")
+    fun selectComments(id: Int): Flowable<List<CommentEntity>>
 }

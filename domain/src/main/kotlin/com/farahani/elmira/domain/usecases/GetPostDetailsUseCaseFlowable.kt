@@ -3,6 +3,7 @@ package com.farahani.elmira.domain.usecases
 import com.farahani.elmira.domain.TransformerFlowable
 import com.farahani.elmira.domain.entities.Post
 import com.farahani.elmira.domain.interfaces.PostsRepository
+import com.farahani.elmira.domain.usecases.common.BaseUseCaseFlowable
 import io.reactivex.Flowable
 import javax.inject.Inject
 

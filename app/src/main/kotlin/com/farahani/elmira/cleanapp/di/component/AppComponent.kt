@@ -13,7 +13,7 @@ import javax.inject.Singleton
         AppModule::class,
         NetworkModule::class,
         DbModule::class,
-        PostsViewModelModule::class,
+        ViewModelFactoryModule::class,
         UsecasesModule::class,
         ActivitiesBindingModule::class
     ]

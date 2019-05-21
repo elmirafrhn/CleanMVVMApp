@@ -2,6 +2,6 @@ package com.farahani.elmira.domain.usecases.common
 
 import io.reactivex.Completable
 
-interface BaseUseCase{
-    fun execute():Completable
+abstract class BaseUseCase<A> {
+    abstract fun execute(arg:A): Completable
 }

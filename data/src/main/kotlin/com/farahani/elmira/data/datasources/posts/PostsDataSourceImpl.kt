@@ -19,16 +19,16 @@ class PostsDataSourceImpl @Inject constructor(
     private var page = 1
     private val limit = 10
 
-    override fun getPostsF(): Flowable<MutableList<PostEntity>> = getPostsFromDB()
+    override fun getPostsF(): Flowable<List<PostEntity>> = getPostsFromDB()
 
     override fun loadMorePosts(): Completable = getAndPersistPosts()
 
-    private fun getPostsFromDB(): Flowable<MutableList<PostEntity>> = postsDao.selectPosts()
+    private fun getPostsFromDB(): Flowable<List<PostEntity>> = postsDao.selectPosts()
 
     private fun getAndPersistPosts(): Completable {
         return apiService.getPosts(page, limit)
             .doOnNext {
-                postsDao.insertPosts(it.map { item -> item.map() }.toMutableList())
+                postsDao.insertPosts(it.map { item -> item.map() })
                 page++
             }
             .ignoreElements()

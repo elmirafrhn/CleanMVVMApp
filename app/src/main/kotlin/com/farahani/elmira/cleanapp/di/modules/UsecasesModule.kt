@@ -1,10 +1,8 @@
 package com.farahani.elmira.cleanapp.di.modules
 
-import com.farahani.elmira.data.repositories.PostsRepositoryImpl
-import com.farahani.elmira.domain.interfaces.PostsRepository
-import com.farahani.elmira.domain.usecases.GetPostDetailsUseCaseFlowable
-import com.farahani.elmira.domain.usecases.GetPostsUseCaseFlowable
-import com.farahani.elmira.domain.usecases.GetPostsUseCaseImp
+import com.farahani.elmira.data.repositories.CommentsRepository
+import com.farahani.elmira.data.repositories.PostsRepository
+import com.farahani.elmira.domain.usecases.*
 import com.farahani.elmira.presentation.transformer.TransformerFImpl
 import com.farahani.elmira.presentation.transformer.TransformerImpl
 import dagger.Module
@@ -14,14 +12,22 @@ import dagger.Provides
 class UsecasesModule {
 
     @Provides
-    fun provideGetPostsUseCaseImp(repository: PostsRepository): GetPostsUseCaseImp =
-        GetPostsUseCaseImp(TransformerImpl(), repository)
+    fun provideGetPostsUseCase(repository: PostsRepository): GetPostsUseCase =
+        GetPostsUseCase(TransformerImpl(), repository)
 
     @Provides
-    fun provideGetPostsUseCaseFImpl(repository: PostsRepositoryImpl): GetPostsUseCaseFlowable =
+    fun provideGetPostsUseCaseF(repository: com.farahani.elmira.data.repositories.PostsRepository): GetPostsUseCaseFlowable =
         GetPostsUseCaseFlowable(repository, TransformerFImpl())
 
     @Provides
-    fun provideGetPostDetailsUseCaseImpl(repository: PostsRepositoryImpl): GetPostDetailsUseCaseFlowable =
+    fun provideGetPostDetailsUseCase(repository: com.farahani.elmira.data.repositories.PostsRepository): GetPostDetailsUseCaseFlowable =
         GetPostDetailsUseCaseFlowable(repository, TransformerFImpl())
+
+    @Provides
+    fun provideGetCommentsUseCase(repository: CommentsRepository): GetCommentsUseCase =
+        GetCommentsUseCase(repository, TransformerImpl())
+
+    @Provides
+    fun provideGetCommentsUseCaseFlowable(repository: CommentsRepository): GetCommentsUseCaseFlowable =
+        GetCommentsUseCaseFlowable(repository, TransformerFImpl())
 }

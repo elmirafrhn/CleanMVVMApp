@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">presentation</string>
+    <string name="comments">Comments</string>
+    <string name="comments_header">Comments</string>
 </resources>
