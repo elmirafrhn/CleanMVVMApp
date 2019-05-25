@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.farahani.elmira.presentation.models.PostModel
 import dagger.android.support.DaggerFragment
@@ -25,7 +24,6 @@ class PostsFragment : DaggerFragment() {
     private val adapter: PostsRecyclerViewAdapter by lazy {
         PostsRecyclerViewAdapter()
     }
-
     var itemClickLCallBack: ItemClickLCallBack? = null
 
     private val viewModel: PostsViewModel by lazy {

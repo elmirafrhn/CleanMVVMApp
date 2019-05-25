@@ -68,14 +68,11 @@ class PostsViewModel @Inject constructor(
                     }, {
                         Log.d("getPostDetails", it.message)
                     }).track()
-
-
                 }
                 else -> {
 
                 }
             }
-
         }, {
             Log.d("getPosts subject", it.message)
         }).track()

@@ -13,7 +13,7 @@ class MainActivity : DaggerAppCompatActivity(), ItemClickLCallBack {
 
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, PostsFragment.newInstance(this))
+            .replace(R.id.fragment_container, PostsFragment.newInstance(this))
             .addToBackStack("post_fragment")
             .commit()
     }
