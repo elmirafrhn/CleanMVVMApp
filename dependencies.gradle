@@ -11,7 +11,7 @@ ext {
     retrofitLoggingVersion = '3.9.0'
 
     daggerGroup = 'com.google.dagger'
-    daggerVersion = '2.17'
+    daggerVersion = '2.22.1'
 
     supportGroup = 'androidx.support'
     roomVersion = '2.1.0-alpha04'
@@ -20,7 +20,6 @@ ext {
     butterknifeVersion = '8.8.1'
     picassoVersion = '2.71828'
     supportVersion = '1.0.0-alpha1'
-    daggerVersion = '2.16'
     espressoVersion = '3.1.0-alpha1'
     powermockVersion = '1.7.4'
     rxJavaVersion = '2.2.2'

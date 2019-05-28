@@ -1,4 +1,4 @@
-package com.farahani.elmira.presentation
+package com.farahani.elmira.presentation.common.utils
 
 import androidx.recyclerview.widget.DiffUtil
 import com.farahani.elmira.presentation.models.PostModel

@@ -1,10 +1,12 @@
-package com.farahani.elmira.presentation
+package com.farahani.elmira.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.farahani.elmira.presentation.R
+import com.farahani.elmira.presentation.adapter.action.PostsListAction
 import com.farahani.elmira.presentation.models.PostModel
 import io.reactivex.subjects.PublishSubject
 

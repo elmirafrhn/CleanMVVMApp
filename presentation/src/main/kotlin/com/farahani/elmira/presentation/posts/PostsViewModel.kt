@@ -1,14 +1,17 @@
-package com.farahani.elmira.presentation
+package com.farahani.elmira.presentation.posts
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.LiveDataReactiveStreams
 import androidx.lifecycle.MutableLiveData
-import com.farahani.elmira.domain.entities.Post
 import com.farahani.elmira.domain.usecases.GetPostDetailsUseCaseFlowable
 import com.farahani.elmira.domain.usecases.GetPostsUseCase
 import com.farahani.elmira.domain.usecases.GetPostsUseCaseFlowable
+import com.farahani.elmira.presentation.adapter.action.PostsListAction
+import com.farahani.elmira.presentation.common.BaseViewModel
 import com.farahani.elmira.presentation.models.PostModel
+import com.farahani.elmira.presentation.common.utils.map
+import com.farahani.elmira.presentation.models.GetPostsViewStates
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
@@ -38,7 +41,12 @@ class PostsViewModel @Inject constructor(
         getPostsUseCaseFlowable.execute(Unit)
             .subscribe({
                 Log.d("getPostsUseCase", "getPostsUseCaseFlowable")
-                postsState.postValue(GetPostsViewStates(showLoading = false, error = false))
+                postsState.postValue(
+                    GetPostsViewStates(
+                        showLoading = false,
+                        error = false
+                    )
+                )
             }, {
                 Log.d("getPostsUseCase", "getPostsUseCaseFlowableError")
                 postsState.postValue(GetPostsViewStates(error = true))
@@ -49,11 +57,21 @@ class PostsViewModel @Inject constructor(
         loadMoreSubject.subscribe({ action ->
             when (action) {
                 is PostsListAction.LoadMorePostsAction -> {
-                    postsState.postValue(GetPostsViewStates(showLoading = true, error = false))
+                    postsState.postValue(
+                        GetPostsViewStates(
+                            showLoading = true,
+                            error = false
+                        )
+                    )
                     getPostsUseCase.execute(Unit).subscribe({
 
                         Log.d("getPosts", "loadmore")
-                        postsState.postValue(GetPostsViewStates(showLoading = false, error = false))
+                        postsState.postValue(
+                            GetPostsViewStates(
+                                showLoading = false,
+                                error = false
+                            )
+                        )
 
                     }, {
                         Log.d("getPosts", it.message)

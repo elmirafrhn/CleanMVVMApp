@@ -1,4 +1,4 @@
-package com.farahani.elmira.presentation
+package com.farahani.elmira.presentation.common.utils
 
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager

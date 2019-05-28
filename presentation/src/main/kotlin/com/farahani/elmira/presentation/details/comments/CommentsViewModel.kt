@@ -7,8 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.farahani.elmira.domain.usecases.GetCommentsUseCase
 import com.farahani.elmira.domain.usecases.GetCommentsUseCaseFlowable
-import com.farahani.elmira.presentation.BaseViewModel
-import com.farahani.elmira.presentation.map
+import com.farahani.elmira.presentation.common.BaseViewModel
+import com.farahani.elmira.presentation.common.utils.map
 import com.farahani.elmira.presentation.models.CommentModel
 import com.farahani.elmira.presentation.models.PostModel
 import javax.inject.Inject

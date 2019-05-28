@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.farahani.elmira.presentation.R
-import com.farahani.elmira.presentation.addDividerLine
+import com.farahani.elmira.presentation.common.utils.addDividerLine
 import com.farahani.elmira.presentation.details.comments.CommentsViewModel
 import com.farahani.elmira.presentation.details.comments.adapter.CommentsRecyclerAdapter
 import com.farahani.elmira.presentation.models.CommentModel

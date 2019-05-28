@@ -3,7 +3,9 @@ package com.farahani.elmira.presentation
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import com.farahani.elmira.presentation.details.DetailsFragment
+import com.farahani.elmira.presentation.interfaces.ItemClickLCallBack
 import com.farahani.elmira.presentation.models.PostModel
+import com.farahani.elmira.presentation.posts.PostsFragment
 import dagger.android.support.DaggerAppCompatActivity
 
 class MainActivity : DaggerAppCompatActivity(), ItemClickLCallBack {

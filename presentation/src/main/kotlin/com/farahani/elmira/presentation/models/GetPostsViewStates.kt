@@ -1,4 +1,4 @@
-package com.farahani.elmira.presentation
+package com.farahani.elmira.presentation.models
 
 data class GetPostsViewStates(
 

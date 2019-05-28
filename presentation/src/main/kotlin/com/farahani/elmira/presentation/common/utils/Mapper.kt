@@ -1,4 +1,4 @@
-package com.farahani.elmira.presentation
+package com.farahani.elmira.presentation.common.utils
 
 import com.farahani.elmira.domain.entities.Comment
 import com.farahani.elmira.domain.entities.Post

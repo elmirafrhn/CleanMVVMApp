@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.farahani.elmira.cleanapp.di.ViewModelFactory
 import com.farahani.elmira.cleanapp.di.ViewModelKey
-import com.farahani.elmira.presentation.PostsViewModel
+import com.farahani.elmira.presentation.posts.PostsViewModel
 import com.farahani.elmira.presentation.details.comments.CommentsViewModel
 import dagger.Binds
 import dagger.Module

@@ -1,4 +1,4 @@
-package com.farahani.elmira.presentation
+package com.farahani.elmira.presentation.common
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
