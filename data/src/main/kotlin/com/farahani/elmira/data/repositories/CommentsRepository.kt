@@ -9,10 +9,10 @@ import io.reactivex.Flowable
 import javax.inject.Inject
 
 class CommentsRepository @Inject constructor(
-    val dataSource: CommentsDataSource
+    private val dataSource: CommentsDataSource
 ) : CommentsRepository {
 
-    override fun getComments(id:Int): Completable = dataSource.getComments(id)
+    override fun getComments(id: Int): Completable = dataSource.getComments(id)
 
     override fun loadComments(id: Int): Flowable<List<Comment>> =
         dataSource.loadComments(id).map {

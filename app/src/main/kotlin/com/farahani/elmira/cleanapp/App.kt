@@ -24,5 +24,4 @@ class App : DaggerApplication() {
             Log.i("elmira", value.toString())
         }
     }
-
 }

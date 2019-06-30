@@ -9,9 +9,9 @@ import com.farahani.elmira.domain.usecases.GetPostsUseCase
 import com.farahani.elmira.domain.usecases.GetPostsUseCaseFlowable
 import com.farahani.elmira.presentation.adapter.action.PostsListAction
 import com.farahani.elmira.presentation.common.BaseViewModel
-import com.farahani.elmira.presentation.models.PostModel
 import com.farahani.elmira.presentation.common.utils.map
 import com.farahani.elmira.presentation.models.GetPostsViewStates
+import com.farahani.elmira.presentation.models.PostModel
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
@@ -23,8 +23,8 @@ class PostsViewModel @Inject constructor(
     val postsState: MutableLiveData<GetPostsViewStates> = MutableLiveData()
     val showDetailFragmet: MutableLiveData<PostModel> = MutableLiveData()
     val posts: LiveData<List<PostModel>> =
-        LiveDataReactiveStreams.fromPublisher(getPostsUseCaseFlowable.execute(Unit).map {
-            it.map { it.map() }
+        LiveDataReactiveStreams.fromPublisher(getPostsUseCaseFlowable.execute(Unit).map { postsList ->
+            postsList.map { it.map() }
         })
     var loadMoreSubject =
         PublishSubject.create<PostsListAction>()
@@ -65,7 +65,7 @@ class PostsViewModel @Inject constructor(
                     )
                     getPostsUseCase.execute(Unit).subscribe({
 
-                        Log.d("getPosts", "loadmore")
+                        Log.d("getPosts", "load_more")
                         postsState.postValue(
                             GetPostsViewStates(
                                 showLoading = false,

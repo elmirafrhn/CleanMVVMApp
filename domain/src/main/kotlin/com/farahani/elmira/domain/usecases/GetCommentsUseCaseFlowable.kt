@@ -8,8 +8,8 @@ import io.reactivex.Flowable
 import javax.inject.Inject
 
 class GetCommentsUseCaseFlowable @Inject constructor(
-    val repository: CommentsRepository,
-    val transformer: TransformerFlowable<List<Comment>>
+    private val repository: CommentsRepository,
+    private val transformer: TransformerFlowable<List<Comment>>
 ) : BaseUseCaseFlowable<Int, List<Comment>>() {
 
     override fun execute(arg: Int): Flowable<List<Comment>> = repository.loadComments(arg).compose(transformer)
