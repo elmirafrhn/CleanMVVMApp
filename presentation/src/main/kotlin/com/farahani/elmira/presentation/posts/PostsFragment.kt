@@ -8,15 +8,13 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.farahani.elmira.presentation.*
+import com.farahani.elmira.presentation.R
 import com.farahani.elmira.presentation.adapter.PostsRecyclerViewAdapter
-import com.farahani.elmira.presentation.models.PostModel
-import com.farahani.elmira.presentation.common.utils.CustomDiffUtil
 import com.farahani.elmira.presentation.common.utils.addDividerLine
 import com.farahani.elmira.presentation.interfaces.ItemClickLCallBack
 import com.farahani.elmira.presentation.models.GetPostsViewStates
+import com.farahani.elmira.presentation.models.PostModel
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 import javax.inject.Inject
@@ -59,13 +57,6 @@ class PostsFragment : DaggerFragment() {
 
         viewModel.posts.observe(this,
             Observer<List<PostModel>> {
-                val diffUtil = DiffUtil.calculateDiff(
-                    CustomDiffUtil(
-                        adapter.items, it
-                    )
-                )
-                diffUtil.dispatchUpdatesTo(adapter)
-
                 adapter.submitList(it)
                 postsRecyclerView.layoutManager = LinearLayoutManager(activity)
                 postsRecyclerView.adapter = adapter
@@ -86,5 +77,4 @@ class PostsFragment : DaggerFragment() {
             this.itemClickLCallBack = itemClickLCallBack
         }
     }
-
 }
