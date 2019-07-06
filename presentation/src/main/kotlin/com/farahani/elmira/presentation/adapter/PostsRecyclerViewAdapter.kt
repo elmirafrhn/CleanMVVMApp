@@ -40,7 +40,6 @@ class PostsRecyclerViewAdapter : RecyclerView.Adapter<PostsRecyclerViewAdapter.P
     }
 
     fun submitList(postList: List<PostModel>) {
-        items.clear()
         items.addAll(postList)
     }
 
