@@ -22,4 +22,12 @@ class GetPostsUseCaseUnitTest {
             .test()
             .assertComplete()
     }
+
+    @Test
+    fun `fail execute`() {
+        `when`(repository.loadMorePosts()).thenReturn(Completable.error(Throwable()))
+        loadMorePosts.execute(Unit)
+            .test()
+            .assertNotComplete()
+    }
 }
