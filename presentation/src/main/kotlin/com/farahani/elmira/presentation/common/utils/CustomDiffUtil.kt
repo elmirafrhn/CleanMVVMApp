@@ -13,5 +13,5 @@ class CustomDiffUtil(var oldList: List<PostModel>, var newList: List<PostModel>)
     override fun getNewListSize(): Int = newList.size
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-        oldList[oldItemPosition].equals(newList[newItemPosition])
+        oldList[oldItemPosition] == newList[newItemPosition]
 }
